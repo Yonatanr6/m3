@@ -47,9 +47,8 @@ for(int i=0;i<Following;i++){
         
 }
 	TheFollowings.push_back(&member);
-    member.addFollowers(*this);
-    
-    Following++;
+         Following++;
+        member.addFollowers(*this);
     }
 }
 void Member::unfollow(Member &member){
@@ -57,6 +56,7 @@ void Member::unfollow(Member &member){
 		if(TheFollowings[i]->id == member.id){
 			TheFollowings.erase(TheFollowings.begin()+i);
                 Following--;
+                return;
 	}
         }
 	member.removeFollowers();
