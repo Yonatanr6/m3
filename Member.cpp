@@ -25,11 +25,12 @@ void Member::setFollowing(int x){
     Following = x;  
 }
 
-void Member::addFollowers(){
+void Member::addFollowers(Member &member){
+    TheFollowers.push_back(&member);
     Followers++;
 }
 
-void Member::addFollwing(Member &member){
+void Member::addFollwing(){
     Following++;
 }
 void Member::removeFollowers(){
@@ -39,24 +40,26 @@ void Member::removeFollowing(){
     Following--;
 }
 void Member::follow(Member &member){
+    if(this->id!=member.id){
 for(int i=0;i<Following;i++){
-	if(TheFollowings.data()->id == member.id)
+	if(TheFollowings[i]->id == member.id)
 		return;
         
 }
-	TheFollowings.push_back(member);
-    member.addFollowers();
-    //member.TheFollowers.push_back(*this);
+	TheFollowings.push_back(&member);
+    member.addFollowers(*this);
+    
     Following++;
-
+    }
 }
 void Member::unfollow(Member &member){
 	for(int i=0;i<Following;i++){
-		if(TheFollowings.data()->id == member.id)
-			TheFollowings.erase(TheFollowers.begin()+i);
+		if(TheFollowings[i]->id == member.id){
+			TheFollowings.erase(TheFollowings.begin()+i);
+                Following--;
 	}
-	Following--;
-	member.removeFollowing();
+        }
+	member.removeFollowers();
 }
 int Member::numFollowing(){
     return this->Following;

@@ -14,9 +14,10 @@
 
 #include <iostream>
 #include <vector>
-
-
 using namespace std;
+
+
+
 
 class Member{
 
@@ -24,8 +25,8 @@ public:
 	string _name;
 	int Followers;
 	int Following;
-	vector <Member> TheFollowers;
-	vector <Member> TheFollowings;
+	vector <Member*> TheFollowers;
+	vector <Member*> TheFollowings;
 	int id;
 	static int count1;
 
@@ -38,8 +39,8 @@ public:
         }
          void setFollowers(int);
          void setFollowing(int);
-         void addFollowers();
-         void addFollwing(Member &member);
+         void addFollowers(Member &member);
+         void addFollwing();
          void removeFollowers();
          void removeFollowing();
          void follow(Member &member);
@@ -55,4 +56,13 @@ public:
         count1++;
         id=count1;
 	}
+         ~Member(){
+            for(int i=0;Following;i++){
+             unfollow(*TheFollowings[i]); 
+            } 
+             for(int i=0;Followers;i++){ 
+             TheFollowers[i]->unfollow(*this);
+            } 
+            count1--;
+         }
 };
