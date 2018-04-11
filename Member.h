@@ -16,12 +16,9 @@
 #include <vector>
 using namespace std;
 
-
-
-
 class Member{
 
-public:
+
 	string _name;
 	int Followers;
 	int Following;
@@ -29,7 +26,7 @@ public:
 	vector <Member*> TheFollowings;
 	int id;
         static int count1;
-
+public:
         
         
          void setFollowers(int);
