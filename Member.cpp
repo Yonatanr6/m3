@@ -54,12 +54,12 @@ for(int i=0;i<Following;i++){
 void Member::unfollow(Member &member){
 	for(int i=0;i<Following;i++){
 		if(TheFollowings[i]->id == member.id){
+                    member.removeFollowers();
 			TheFollowings.erase(TheFollowings.begin()+i);
                 Following--;
-                return;
 	}
         }
-	member.removeFollowers();
+	
 }
 int Member::numFollowing(){
     return this->Following;
