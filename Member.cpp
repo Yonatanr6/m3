@@ -10,10 +10,12 @@
  * 
  * Created on April 8, 2018, 1:51 PM
  */
-
-#include <valarray>
-
 #include "Member.h"
+#include <valarray>
+#include <vector>
+#include <iostream>
+using namespace std;
+
 
 void Member::setFollowers(int x){
     Followers = x;  
@@ -38,8 +40,9 @@ void Member::removeFollowing(){
 }
 void Member::follow(Member &member){
 for(int i=0;i<Following;i++){
-	if(TheFollowings[i].id==member.id)
+	if(TheFollowings.data()->id == member.id)
 		return;
+        
 }
 	TheFollowings.push_back(member);
     member.addFollowers();
@@ -49,7 +52,7 @@ for(int i=0;i<Following;i++){
 }
 void Member::unfollow(Member &member){
 	for(int i=0;i<Following;i++){
-		if(TheFollowings[i].id==member.id)
+		if(TheFollowings.data()->id == member.id)
 			TheFollowings.erase(TheFollowers.begin()+i);
 	}
 	Following--;
