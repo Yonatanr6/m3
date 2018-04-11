@@ -28,15 +28,10 @@ public:
 	vector <Member*> TheFollowers;
 	vector <Member*> TheFollowings;
 	int id;
-	static int count1;
+        static int count1;
 
         
-        int getFollowers(){
-            return Followers;
-        }
-         int getFollowing(){
-            return Following;
-        }
+        
          void setFollowers(int);
          void setFollowing(int);
          void addFollowers(Member &member);
@@ -48,13 +43,14 @@ public:
          int numFollowing();
          int numFollowers();
          static int count();
-         
+          
          Member(){
 		_name="";
 		Followers=0;
-		Following=0;   
-        count1++;
-        id=count1;
+		Following=0; 
+                count1++;
+               id=count1;
+               
 	}
          ~Member(){
             for(int i=0;Following;i++){

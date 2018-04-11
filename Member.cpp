@@ -72,4 +72,4 @@ int Member::numFollowers(){
   int Member::count(){
       return count1;
 }
-  int Member::count1=0;
+ int Member::count1=0;
